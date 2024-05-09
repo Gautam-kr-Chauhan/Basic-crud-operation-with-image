@@ -1,0 +1,32 @@
+<%- include('header') %>
+    <div class="container">
+        <h1 class="bg-success p-2" >Edit user (<%= user.name %>)</h1>
+        <form action="/update/<%= user._id %>" method="post" id="add-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">name</label>
+                <input type="text" class="form-control" name="name" value="<%= user.name %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="<%= user.email %>">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">phone</label>
+                <input type="tel" class="form-control" name="phone" value="<%= user.phone %>">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">image</label>
+                <input type="file" class="form-control" name="image">
+                <img src="/<%= user.image %>" width="100" alt="" class="img-thumbnail mt-1">
+                <input type="hidden" name="old_image"  value="<%= user.image %>">
+            </div>
+            <!-- <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <button type="submit" class="btn btn-success" value="Update user">update</button>
+        </form>
+    </div>
+<%- include('footer') %>
